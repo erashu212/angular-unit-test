@@ -1,12 +1,12 @@
 # angular-unit-test
 Unit test cases with angular js + jasmine + karma + gulp
 
-Prerequisites
+## Prerequisites
 
-Node.js 4.2.2 or later
-Gulp 3.9.x
-Karma
+1. Node.js 4.2.2 or later
+2. Gulp 3.9.x
+3. Karma
 
-# Steps
+## Steps
 1. run npm install
 2. `gulp test` to run the test cases
