@@ -1,0 +1,48 @@
+<body ng-app="ajjapp">
+<div ui-view></div>
+<div ng-init="gPersonUsername()"></div>
+
+                       
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3g-15">
+                       
+                        <div>
+                            <h3>Modify Details:</h3>
+                <section class="EditPerson">
+                          <form class="form">
+                            
+         <br>
+		       <p> Rigstered Email: <b>{{PersonEmail}} </b></p>
+               <p>   New Email: <input type="email" ng-model="EditPerson.Email" class="input-medium"> </p>
+               <p>   New name: <input type="text" ng-model="EditPerson.Name" class="input-medium"> </p>
+                <p>  New Password: <input type="password" ng-model="EditPerson.Password" class="input-medium"></p>
+                <p>  Is Lecturer: <input type="checkbox" ng-model="EditPerson.islect"> </p>
+               </p> <input type="submit" ng-click="modifyPerson(EditPerson.Email, EditPerson.Name, EditPerson.Password, EditPerson.islect)" value="Update Details"> </p>
+
+</form>
+</section>
+                         </div>
+                            <div>
+                                <hr>
+                                <br>
+                                <br>
+                            <h3>Delete Person:</h3>
+                          <form class="form">
+                            <input type="submit" ng-click="deletePerson()" value="Delete Account" />
+                          </form>
+                        
+                         </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <p>{{error}}</p>
+            </div>
+        </div>
+
+
+</body>
+

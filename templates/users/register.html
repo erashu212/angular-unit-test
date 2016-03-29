@@ -1,0 +1,74 @@
+<body ng-app="ajjapp">
+<div ui-view></div>
+<div ng-init="gAllSkills()"></div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3g-15">
+                      <!-- Registration form -->
+<section class="register">
+	<h3 class="underline">User Registraion</h3>
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<label for="inputrname" class="col-sm-4 control-label">Name</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="inputrname" placeholder="name" ng-model="register.rname">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputEmail" class="col-sm-4 control-label">Email</label>
+			<div class="col-sm-4">
+				<input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="register.email">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputUsername" class="col-sm-4 control-label">Username</label>
+			<div class="col-sm-4">
+				<input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="register.username">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword" class="col-sm-4 control-label">Password</label>
+			<div class="col-sm-4">
+				<input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="register.password">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="inputSkills" class="col-sm-4 control-label">Skills</label>
+		<table class="table">
+            <tr ng-repeat="skill in skills">
+                 <select ng-model="inputSkills">
+					    <option ng-selected="{{inputSkills.value == inputSkills}}"
+					            ng-repeat="skill1 in AllSkills"
+					            value="{{skill1.name}}">{{skill1.name}}
+					    </option>
+					</select>
+                <a href ng-click="addSkill(inputSkills)" class="btn btn-small">Add skill</a>
+                <td>    {{skill}} [<a href ng-click="removeSkill($index)">Remove</a>]   </td>
+            </tr>
+	    	</table>
+		</div>
+		
+		<div class="form-group">
+			<label for="inputIsLecturer" class="col-sm-4 control-label">Is Lecturer?</label>
+			<div class="col-sm-4">
+				<input type="checkbox" class="form-control" id="inputIsLecturer" placeholder="IsLecturer" ng-model="register.IsLecturer">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-10">
+				<button type="submit" class="btn btn-primary" ng-click="register(register.rname, register.email, register.username, register.password, register.IsLecturer)">Register</button>
+				<a ng-href="/">Cancel</a>
+			</div>
+		</div>
+	</form>
+</section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>

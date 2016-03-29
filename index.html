@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Title -->
+		<title>Website Title</title>
+		<!-- Css declaration -->
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/simple-sidebar.css">
+		<!-- Javascript declaration -->
+		<script type="text/javascript" src="assets/js/angular.js"></script>
+		<script type="text/javascript" src="assets/js/angular-route.js"></script>
+		<script type="text/javascript" src="assets/js/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="assets/js/angular-sanitize.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.js"></script>
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		<script src="app.js"></script>
+		<script src="/controllers/home_ctrl.js"></script>
+		<script src="/controllers/user_ctrl.js"></script>
+		<script src="/controllers/theta_ctrl.js"></script>
+		<script src="/controllers/person_ctrl.js"></script>
+		<script src="/controllers/appoint_ctrl.js"></script>
+		<script src="/services/service.js"></script>
+	</head>
+	<header>
+		<div ng-controller="homeCtrl">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a ui-sref="home">Home</a>
+                </li>
+                <li>
+                <div ng-if="!authorized">
+			        <a ui-sref="login">Login</a>
+		        </div>
+                </li>
+                <li>
+                <div ng-if="!authorized">
+			        <a ui-sref="register">Register</a>
+		        </div>
+                </li>
+                <li>
+                <div ng-if="authorized">
+			        <a ui-sref="logout">Logout</a>
+		        </div>
+		        </li>
+                <li>
+                	<div ng-if="authorized">
+                    <a ui-sref="theta">Theta</a>
+                    </div>
+                </li>
+                <li>
+                <div ng-if="authorized">  <!--change to auth-->
+			        <a ui-sref="appointment">Appointments</a>
+		        </div>
+		        </li>
+                <li>
+                <div ng-if="authorized">  <!--change to auth-->
+			        <a ui-sref="modifyPerson">modifyPerson</a>
+		        </div>
+		        </li>
+            </ul>
+        </div>
+        </div>
+	</header>
+	<!-- Anguar app declaration -->
+	<body ng-app="ajjapp">
+		<div class="container col-sm-12">
+			<div class="row">
+				<div class="col-sm-8">
+					<!-- Rendering view -->
+					<div ui-view></div>
+					
+		</div>
+        </div>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<body ng-app="ajjapp">
+<div ui-view></div>
+
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3g-15">
+                        <div ng-init="gAllLocations()">
+                            <p>Locations:</p>
+                         <li ng-repeat= "loca in AllLocations">
+                             {{loca.name}}
+                         </li>
+                         
+                         </div>
+                         -----------------
+                        <div ng-init="gAllSkills()">
+                            <p>Skills:</p>
+                         <li ng-repeat= "allkil in AllSkills">
+                             {{allkil.name}} - id:{{allkil._id}}
+                         </li>
+                         
+                       </div>
+                         -----------------
+                        <div>
+                            <p>Search Person By Email:</p>
+                            
+                          <form class="form">
+                            <input type="text" ng-model="email0" />
+                            <input type="submit" ng-click="gPersonEmail(email0)" value="search" />
+                          </form>
+                         <li ng-repeat= "perem in PersonEmail">
+                             {{perem}}
+                         </li>
+                        
+                         </div>
+                         -----------------
+                        <div>
+                            <p>Search Person By Skill:</p>
+                            
+                          <form class="form">
+                            <input type="text" ng-model="skill" />
+                            <input type="submit" ng-click="gPersonBySkill(skill)" value="search" />
+                          </form>
+                         <p>Results:</p>
+                         <li ng-repeat= "peres in PersonBySkill">
+                             Name: {{peres.name}}   ---   Email: {{peres.email}}
+                         </li>
+                         </div>                       
+                         -----------------
+                        <div>
+                            <p>get Personal Appointments by Email:</p>
+                            
+                          <form class="form">
+                            <input type="text" ng-model="email2" />
+                            <input type="submit" ng-click="gPersonalAppointments(email2)" value="search" />
+                          </form>
+                            
+                         <li ng-repeat= "perea in PersonalAppointments">
+                             {{perea}}
+                         </li>
+                    
+                         </div> 
+                    </div>
+                </div>
+                <br><br><br>
+                <p>{{error}}</p>
+            </div>
+        </div>
+
+
+</body>
+

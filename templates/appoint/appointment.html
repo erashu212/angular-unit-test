@@ -1,0 +1,99 @@
+<body ng-app="ajjapp">
+<div ui-view></div>
+<div ng-init="gAllLocations()"></div>
+<div ng-init="gAllLecturer()"></div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-3g-15">
+                      <!-- Registration form -->
+	<h3 class="underline">Appointments</h3>
+	<br>
+	<br>
+<section class="appoint">
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<h3 class="underline">Add New Appointments</h3>
+			<table class="table">
+		    <tr>
+		    <th>Title</th>
+		    <th>Start Time</th>
+		    <th>End Time</th>
+		    <th>Date</th>
+		    <th>Participant</th>
+		    <th>bookable</th>
+		    <th>location</th>
+		    </tr>
+			<tr>
+			     <td> <input type="text" ng-model="appoint.title" placeholder="Title" class="input-medium"> </td>
+                 <td> <input type="text" ng-model="appoint.startTime" placeholder="i.e: 1330" class="input-medium"> </td>
+                 <td> <input type="text" ng-model="appoint.endTime" placeholder="i.e: 1430" class="input-medium"> </td>
+                 <td> <input type="text" ng-model="appoint.date" placeholder="20/3/2015" class="input-medium"> </td>
+                 <td><select ng-model="appoint.participants">
+					    <option ng-selected="{{participants.value == appoint.participants}}"
+					            ng-repeat="lec in AllLecturer"
+					            value="{{lec.username}}">{{lec.name}}
+					    </option>
+					</select></td>
+                 <td> <input type="checkbox" ng-model="appoint.bookable"  class="input-medium"> </td>
+                 <td><select ng-model="appoint.location">
+					    <option ng-selected="{{location.value == appoint.location}}"
+					            ng-repeat="loca in AllLocations"
+					            value="{{loca.name}}">{{loca.name}}
+					    </option>
+					</select></td>
+                 <td> <button type="submit" class="btn btn-primary" ng-click="addAppoint(appoint.title, appoint.startTime, appoint.endTime, appoint.date, appoint.participants, appoint.bookable, appoint.location)">Add Appointment</button> </td>
+				</tr>   	
+		</table>
+		<br>
+	</form>
+	</section>
+<section class="Editappoint">	
+		<h3 class="underline">Modify Appointments</h3>
+		<table class="table">
+		    <tr>
+		    <th>id</th>
+		    <th>Title</th>
+		    <th>Start Time</th>
+		    <th>End Time</th>
+		    <th>Date</th>
+		    <th>Participants</th>
+		    <th>bookable</th>
+		    <th>location</th>
+		    </tr>
+            <tr ng-repeat="Editappoint in appoints">
+                 <td> <input type="text" ng-model="Editappoint._id" class="input-medium" readonly> </td>
+			     <td> <input type="text" ng-model="Editappoint.name" placeholder="Title" class="input-medium"> </td>
+                 <td> <input type="text" ng-model="Editappoint.startTime" placeholder="i.e: 1330" class="input-medium"> </td>
+                 <td> <input type="text" ng-model="Editappoint.endTime" placeholder="i.e: 1430" class="input-medium"> </td>
+                 <td> <input type="text" ng-model="Editappoint.date" placeholder="20/3/2015" class="input-medium"> </td>
+                 <td><select ng-model="Editappoint.participants">
+					    <option ng-selected="{{participants.value == Editappoint.participants}}"
+					            ng-repeat="lec1 in AllLecturer"
+					            value="{{lec1.username}}">{{lec1.name}}
+					    </option>
+					</select></td>
+                 <td> <input type="checkbox" ng-model="Editappoint.bookable"  class="input-medium"> </td>
+                 <td><select ng-model="Editappoint.location">
+					    <option ng-selected="{{location.value == Editappoint.location}}"
+					            ng-repeat="loca1 in AllLocations"
+					            value="{{loca1.name}}">{{loca1.name}}
+					    </option>
+					</select></td>
+                 <td> [<a href ng-click="removeAppoint(Editappoint._id, $index)">Remove</a>] </td>
+                 <td> [<a href ng-click="modifyAppoint(Editappoint.name, Editappoint.STime, Editappoint.ETime, Editappoint.DDate, Editappoint.Participants, Editappoint.Bookable, Editappoint.Location)">Save</a>] </td>
+            </tr>
+            <tr>
+            </tr>
+	    	</table> <p>{{error}}</p>
+
+</section>
+                    </div>
+                </div>
+            </div>
+        </div>
+                        <br><br><br>
+               
+</body>
