@@ -42,8 +42,8 @@ describe('Login Page:', function() {
     }, 10000);
   });
 
-  xit('should sign in with valid credentials', function() {
-
+  it('should sign in with valid credentials', function() {
+     browser.ignoreSynchronization = true
     // Find page elements
     var userNameField = element(by.model('login.username'));
     var userPassField = element(by.model('login.password'));
